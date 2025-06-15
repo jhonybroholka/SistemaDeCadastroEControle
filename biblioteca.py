@@ -70,7 +70,7 @@ def emprestar_livro():
     continuar = input("Deseja continuar o empréstimo (s/n)? ").lower()
     if continuar == 's':
         livros[codigo]["situacao"] = "emprestado"
-        print("Item emprestado:")
+        print("Empréstimo realizado.")
         print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "emprestado"]')
     else:
         print("Empréstimo cancelado.")
@@ -86,7 +86,7 @@ def devolver_livro():
 
     if dados["situacao"] == "emprestado":
         livros[codigo]["situacao"] = "Disponível para empréstimo"
-        print("Livro devolvido")
+        print("Devolução realizada.")
         print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "disponível"]')
     else:
         print("O empréstimo não foi registrado.")
