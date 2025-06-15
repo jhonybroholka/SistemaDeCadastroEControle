@@ -9,7 +9,7 @@ def menu():
     print("1 - Cadastro")
     print("2 - Consulta")
     print("3 - Empréstimo")
-    print("4 - Devolvução")
+    print("4 - Devolução")
     print("5 - Sair")
     opcao = input("Digite uma opção: ")
     return opcao
@@ -82,7 +82,6 @@ def devolver_livro():
         print("Livro não encontrado.")
         return
     dados = livros[codigo]
-    print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "{dados["situacao"]}"]')
 
     if dados["situacao"] == "emprestado":
         livros[codigo]["situacao"] = "Disponível para empréstimo"
