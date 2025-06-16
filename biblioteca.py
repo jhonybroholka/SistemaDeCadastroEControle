@@ -9,7 +9,7 @@ def menu():
     print("1 - Cadastro")
     print("2 - Consulta")
     print("3 - Empréstimo")
-    print("4 - Devolvução")
+    print("4 - Devolução")
     print("5 - Sair")
     opcao = input("Digite uma opção: ")
     return opcao
