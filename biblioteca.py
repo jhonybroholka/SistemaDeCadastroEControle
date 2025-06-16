@@ -50,7 +50,7 @@ def consultar_livros():
            termo.lower() in dados["editora"].lower() or \
            termo in dados["ano"] or \
            termo.lower() in dados["situacao"].lower():
-            print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "{dados["situacao"]}"]')
+            print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", "Ano: {dados["ano"]}", "Situação: {dados["situacao"]}"]')
             encontrou = True
     if not encontrou:
         print("Nenhum livro encontrado.")
@@ -70,8 +70,8 @@ def emprestar_livro():
     continuar = input("Deseja continuar o empréstimo (s/n)? ").lower()
     if continuar == 's':
         livros[codigo]["situacao"] = "emprestado"
-        print("Item emprestado:")
-        print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "emprestado"]')
+        print("Livro emprestado")
+        print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", " Ano: {dados["ano"]}", "emprestado"]')
     else:
         print("Empréstimo cancelado.")
 
@@ -86,7 +86,7 @@ def devolver_livro():
     if dados["situacao"] == "emprestado":
         livros[codigo]["situacao"] = "Disponível para empréstimo"
         print("Livro devolvido")
-        print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "disponível"]')
+        print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", " Ano: {dados["ano"]}", "disponível"]')
     else:
         print("O empréstimo não foi registrado.")
 
