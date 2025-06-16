@@ -9,7 +9,7 @@ def menu():
     print("1 - Cadastro")
     print("2 - Consulta")
     print("3 - Empréstimo")
-    print("4 - Devolução")
+    print("4 - Devolvução")
     print("5 - Sair")
     opcao = input("Digite uma opção: ")
     return opcao
@@ -39,12 +39,12 @@ def cadastrar_livro():
         if repetir != 's':
             break
 
-#Cria a função de consultar o status do livro
 def consultar_livros():
-    termo = input("\nBusca: ")
+    termo = input("\nBusca (deixe em branco para listar todos): ")
     encontrou = False
     for codigo, dados in livros.items():
-        if termo in codigo or \
+        if termo == "" or \
+           termo in codigo or \
            termo.lower() in dados["nome"].lower() or \
            termo.lower() in dados["editora"].lower() or \
            termo in dados["ano"] or \
@@ -61,7 +61,6 @@ def emprestar_livro():
         print("Livro não encontrado.")
         return
     dados = livros[codigo]
-    print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "{dados["situacao"]}"]')
 
     if dados["situacao"] == "emprestado":
         print("Não disponível para empréstimo.")
@@ -70,7 +69,7 @@ def emprestar_livro():
     continuar = input("Deseja continuar o empréstimo (s/n)? ").lower()
     if continuar == 's':
         livros[codigo]["situacao"] = "emprestado"
-        print("Empréstimo realizado.")
+        print("Item emprestado:")
         print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "emprestado"]')
     else:
         print("Empréstimo cancelado.")
@@ -85,7 +84,7 @@ def devolver_livro():
 
     if dados["situacao"] == "emprestado":
         livros[codigo]["situacao"] = "Disponível para empréstimo"
-        print("Devolução realizada.")
+        print("Livro devolvido")
         print(f'{codigo}: ["{dados["nome"]}", "{dados["editora"]}", "{dados["ano"]}", "disponível"]')
     else:
         print("O empréstimo não foi registrado.")
