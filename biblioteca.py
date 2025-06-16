@@ -39,6 +39,7 @@ def cadastrar_livro():
         if repetir != 's':
             break
 
+#Cria a função de consulta
 def consultar_livros():
     termo = input("\nBusca (deixe em branco para listar todos): ")
     encontrou = False
