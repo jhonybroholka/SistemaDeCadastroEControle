@@ -33,7 +33,7 @@ def cadastrar_livro():
         }
 
         print("Cadastro realizado!")
-        print(f'{codigo}: ["{nome}", "{editora}", "{ano}", "disponível"]')
+        print(f'{codigo}: ["{nome}", "{editora}", "{ano}", "Disponível para empréstimo"]')
 
         repetir = input("Deseja realizar novo cadastro (s/n)? ").lower()
         if repetir != 's':
@@ -71,7 +71,7 @@ def emprestar_livro():
     if continuar == 's':
         livros[codigo]["situacao"] = "emprestado"
         print("Livro emprestado")
-        print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", " Ano: {dados["ano"]}", "emprestado"]')
+        print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", " Ano: {dados["ano"]}", "Emprestado"]')
     else:
         print("Empréstimo cancelado.")
 
@@ -86,7 +86,7 @@ def devolver_livro():
     if dados["situacao"] == "emprestado":
         livros[codigo]["situacao"] = "Disponível para empréstimo"
         print("Livro devolvido")
-        print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", " Ano: {dados["ano"]}", "disponível"]')
+        print(f'{codigo}: ["Nome: {dados["nome"]}", "Editora: {dados["editora"]}", " Ano: {dados["ano"]}", "Disponível para empréstimo"]')
     else:
         print("O empréstimo não foi registrado.")
 
